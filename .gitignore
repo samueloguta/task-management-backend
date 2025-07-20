@@ -1,2 +1,5 @@
+<<<<<<< HEAD
 node_modules
+=======
+>>>>>>> f08ad9a (Ensure .env is ignored)
 .env
