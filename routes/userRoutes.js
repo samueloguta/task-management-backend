@@ -21,3 +21,5 @@ router.route('/:id')
   .delete(deleteUser);
 
 module.exports = router;
+router.use(protect); // Must come first
+router.use(authorize('admin')); // Then check role

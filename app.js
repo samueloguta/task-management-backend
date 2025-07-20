@@ -32,3 +32,5 @@ app.get('/', (req, res) => {
 });
 
 module.exports = app;
+// Add after other route imports
+app.use('/api/tasks', require('./routes/taskRoutes'));
