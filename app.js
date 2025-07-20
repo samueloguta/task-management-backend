@@ -6,10 +6,10 @@ const morgan = require('morgan');
 const cors = require('cors');
 const connectDB = require('./config/db');
 
-// Load environment variables
+// Load env vars
 dotenv.config();
 
-// Connect to database
+// Connect to DB
 connectDB();
 
 // Create Express app
@@ -21,8 +21,10 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 
-// Routes
+// API Routes
 app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/users', require('./routes/userRoutes'));
+app.use('/api/tasks', require('./routes/taskRoutes'));
 
 // Test route
 app.get('/', (req, res) => {
@@ -30,15 +32,3 @@ app.get('/', (req, res) => {
 });
 
 module.exports = app;
-<Route path="/logout" element={<Logout />} />
-import AdminDashboard from './components/AdminDashboard';
-
-// Add this route
-<Route
-  path="/admin"
-  element={
-    <ProtectedRoute roles={['admin']}>
-      <AdminDashboard />
-    </ProtectedRoute>
-  }
-/>
